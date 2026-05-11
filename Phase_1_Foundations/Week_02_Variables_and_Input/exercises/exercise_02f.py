@@ -1,0 +1,6 @@
+first_number = float(input("Give me a number. "))
+second_number = float(input("Now another one. "))
+print(f"The sum of {first_number} and {second_number} is {first_number + second_number}.")
+print(f"The difference of {first_number} and {second_number} is {first_number - second_number}.")
+print(f"{first_number} multiplied by {second_number} is {first_number * second_number}.")
+print(f"{first_number} divided by {second_number} is {first_number / second_number:.2f}.")

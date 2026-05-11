@@ -1,0 +1,5 @@
+print(15+27)
+print(144/12)
+print(2**10)
+print("5+3")
+print("The above did not compute because I put quotes around the math. I beleive the quotes tell the string to give me the exact typed value.")
