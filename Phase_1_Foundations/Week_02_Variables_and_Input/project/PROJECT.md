@@ -102,7 +102,7 @@ If the basic version felt easy, try one or more:
 
 1. **Add a fourth conversion category** — your choice. Inches ↔ Centimeters? Gallons ↔ Liters? Hours ↔ Minutes? Pick something useful to you.
 
-2. **Show the user's input rounded too:** notice in the sample output, `72°F` displays as `72.0°F` because of `:.2f` (which would show `72.00`) — actually, `:.2f` would show `72.00`. Try formatting the input value with `:.0f` (no decimals) when the user enters whole numbers. Subtle, but it teaches you formatting nuances.
+2. **Format the displayed input differently from the converted output:** try using `:.0f` (no decimals) on the user's input value, while keeping `:.2f` on the converted result. So `72` displays cleanly as `72°F` instead of `72.00°F`. **Tradeoff to notice:** if the user enters a decimal like `72.7`, your display will round to `73` even though the calculation used `72.7` — a "display vs. data" mismatch. Be aware of this; you don't have to fix it here, but understanding when display formatting can mislead is a real software skill.
 
 3. **Make a fancier header** with ASCII art, like Week 1's `about_me.py`.
 
