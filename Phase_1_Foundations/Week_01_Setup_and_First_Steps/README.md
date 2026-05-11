@@ -345,33 +345,43 @@ Together: Git tracks history locally; GitHub stores it online.
 
 You'll land on a page with setup instructions. Keep that tab open.
 
-## Step 2: Initialize Git in Your Project Folder
+## Step 2: Initialize Git at the TOP LEVEL of Your Learn Code Folder
 
-In VS Code's terminal (still in the `Week_01_Setup_and_First_Steps/project` folder), run these commands one at a time. I'll explain each.
+> **Important architectural note:** We want ONE Git repository for your entire `Learn Code` curriculum — not a separate one for each week. That way everything (lessons, exercises, projects, progress notes) gets versioned together as you grow.
+
+**Navigate to the top of your Learn Code folder first.** In your VS Code terminal, run:
+
+```
+cd "C:\Users\shawn\Code Learning\Learn Code"
+```
+
+Your prompt should now end with `Learn Code>`. This is your "repo root" — the level we'll initialize Git at, and the level where you'll run all future Git commands from.
+
+Now run these commands one at a time. I'll explain each.
 
 ```
 git init
 ```
 
-> **What this does:** Tells Git "start tracking changes in this folder." A hidden `.git` folder is created. You don't see it, but Git's bookkeeping lives there.
-
-```
-git add hello.py
-```
-
-> **What this does:** "Stage" your file — tell Git that this file is one you want to include in your next commit.
-
-```
-git commit -m "First commit: hello world"
-```
-
-> **What this does:** Create a commit — a labeled snapshot of the staged files. The `-m` part is the *message* that describes this snapshot. Always write meaningful messages.
+> **What this does:** Tells Git "start tracking changes in this folder and everything below it." A hidden `.git` folder is created here. You don't see it, but Git's bookkeeping lives there. **Every file under `Learn Code/` is now part of this one repo.**
 
 ```
 git branch -M main
 ```
 
-> **What this does:** Renames your default branch to `main`. (A "branch" is a line of development. We'll cover branches deeply in Phase 5; for now, just know `main` is the standard name.)
+> **What this does:** Renames the default branch to `main`. (A "branch" is a line of development. We'll cover branches deeply in Phase 5; for now, just know `main` is the standard name and matches what GitHub uses.)
+
+```
+git add .
+```
+
+> **What this does:** "Stage" *all* files in your Learn Code folder — your curriculum docs, your `hello.py`, everything. The `.` means "current folder and below."
+
+```
+git commit -m "Initial commit: curriculum and first program"
+```
+
+> **What this does:** Creates a commit — a labeled snapshot of all the staged files. The `-m` part is the *message* that describes this snapshot. Always write meaningful messages.
 
 Now connect to your GitHub repo. Go to your GitHub repo page. Copy the URL that looks like `https://github.com/your-username/learning-to-code.git`. Then run:
 
@@ -392,6 +402,10 @@ git push -u origin main
 > **What this does:** Uploads your commit to GitHub. The `-u origin main` part sets the default upstream — so future pushes can just be `git push`.
 
 The first time you push, a browser window may pop up asking you to log into GitHub. Sign in. Once authorized, the push completes.
+
+### ⚠️ The Golden Rule: ONE `.git` Folder Per Repo
+
+You should only ever run `git init` **once** for this curriculum — at the `Learn Code` top level. **Never run `git init` inside a subfolder** like `project/` or a week folder. Doing so creates a "nested repo" that confuses Git and breaks pushing. If you ever feel like running `git init` again, don't — just `cd` back to the top-level `Learn Code` folder and run your normal Git commands from there.
 
 ## Step 3: See Your Code on GitHub
 
